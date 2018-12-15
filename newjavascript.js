@@ -79,7 +79,7 @@ function setStyleNonePopup(list) {
 //funtion start run pop up
 function runPopUp(popUp) {
     startPopUp = setInterval(function () {
-        move = move + 1;
+        move = move + 2;
         popUp.style.display = "block";
         popUp.style.top = move + 'px';
         stopPopUp();
@@ -91,7 +91,7 @@ function stopPopUp() {
     if (move >= 50)
     {
         clearInterval(startPopUp);
-        move = 0;
+        move = -200;
     }
 }
 ;
@@ -111,7 +111,7 @@ function hidePopup() {
     var listItemsPopUp = document.getElementsByClassName("popup");
     for (var i = 0; i < listItemsPopUp.length; i++)
     {
-        listItemsPopUp[i].style.top = "-300px";
+        listItemsPopUp[i].style.top = "-200px";
+        listItemsPopUp[i].style.display = "none";
     }
-    $('.popup').hide();
 }

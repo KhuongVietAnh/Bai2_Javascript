@@ -1,0 +1,81 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 13, 2018, 10:07:28 AM
+    Author     : VietAnh
+*/
+
+body{
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    text-align: center;
+    margin: 0 auto;
+    width: 500px;
+}
+.list{
+    margin-top: 50px;
+    position: relative;
+}
+.list >li{
+    margin: 0px 23%;
+    list-style: none;
+}
+.list li >img{
+    max-width: 100%;
+}
+.list li >p{
+    margin-top: -3px;
+    display: none;
+    padding: 15px;
+    border: 1px solid;
+    /*  margin-top: -10px;*/
+}
+.popup{
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -300px;
+    border-radius: 5px;
+    border: 2px solid !important;
+    margin: 0px 16% !important;
+}
+.list__img__button{
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+.bullet__close{   
+    position: absolute;
+    top: 0%;
+    right: 0%; 
+    margin-top: -15px;
+    right: -15px;
+    cursor: pointer;
+}
+.list__content >img{
+    cursor: pointer;
+}
+.list__content span{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+.list__content{
+    overflow: hidden;
+}
+li p{
+    height: 0px;
+}
+
+.popup p span{
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+}

@@ -1,7 +1,10 @@
+//show menu type=1, show popup type=2
+var type;
+
 //Initialize the start value move of the popup 
-var move =-200;
+var move = -200;
 //
-var startPopUp;
+var start;
 //contain object of class call
 var listImgItems;
 //contain object of class call
@@ -58,15 +61,17 @@ function clickButton(x) {
 }
 ;
 /*funtion show monu 
-
-*/
+ 
+ */
 function showMenu(listItems, listImgItems, x) {
+    type = 1;
     setStyleNone(listItems, listImgItems, imgItems);
     listImgItems.setAttribute('src', 'images/' + imgItemsHover[x]);
     listItems.setAttribute('style', 'height:10px;');
     listItems.style.display = "block";
-    $(listItems).animate({height: '200px'}, 500, function () {
-    });
+    /* $(listItems).animate({height: '200px'}, 500, function () {
+     });*/
+    runShow(listItems, type);
 }
 ;
 //Hide popup when click other menu
@@ -77,32 +82,49 @@ function setStyleNonePopup(list) {
 }
 ;
 //funtion start run pop up
-function runPopUp(popUp) {
-    startPopUp = setInterval(function () {
-        move = move + 2;
-        popUp.style.display = "block";
-        popUp.style.top = move + 'px';
-        stopPopUp();
-    }, 5);
+function runShow(typeShow, type) {
+    if (type === 1) //show menu
+    {
+        move = 0;
+        start = setInterval(function () {
+            move = move + 2;
+            typeShow.style.display = "block";
+            typeShow.style.height = move + 'px';
+            stopPopUp(typeShow, type);
+        }, 1);
+    } else if (type === 2) { //show popup
+        move=-200;
+        start = setInterval(function () {
+            move = move + 2;
+            typeShow.style.display = "block";
+            typeShow.style.top = move + 'px';
+            stopPopUp(typeShow, type);
+        }, 5);
+    }
 }
 ;
 //funtion stop run popup
-function stopPopUp() {
-    if (move >= 50)
+function stopPopUp(typeShow, type) {
+    if (move >= 50 && type === 2)
     {
-        clearInterval(startPopUp);
+        clearInterval(start);
         move = -200;
+    } else if (move >= 200 && type === 1) {
+        typeShow.style.height = '-200px';
+        clearInterval(start);
+        move = 0;
     }
 }
 ;
 //funtion showPopUp of event onclick 
 function showPopUP(x) {
+    type = 2;
     var listItemsPopUp = document.getElementsByClassName("popup");
     setStyleNonePopup(listItemsPopUp);
     if (x % 2 !== 0) {
-        runPopUp(listItemsPopUp[0]);
+        runShow(listItemsPopUp[0], type);
     } else {
-        runPopUp(listItemsPopUp[1]);
+        runShow(listItemsPopUp[1], type);
     }
 }
 ;
@@ -111,7 +133,7 @@ function hidePopup() {
     var listItemsPopUp = document.getElementsByClassName("popup");
     for (var i = 0; i < listItemsPopUp.length; i++)
     {
-        listItemsPopUp[i].style.top = "-200px";
+        listItemsPopUp[i].style.top = "-300px";
         listItemsPopUp[i].style.display = "none";
     }
 }

@@ -16,11 +16,10 @@ body{
 }
 .container{
     text-align: center;
-    margin: 0 auto;
-    width: 500px;
+    margin: 50px auto;
+    max-width: 500px;
 }
 .list{
-    margin-top: 50px;
     position: relative;
 }
 .list >li{
@@ -35,7 +34,6 @@ body{
     display: none;
     padding: 15px;
     border: 1px solid;
-    /*  margin-top: -10px;*/
 }
 .popup{
     display: none;
@@ -44,7 +42,7 @@ body{
     top: -300px;
     border-radius: 5px;
     border: 2px solid !important;
-    margin: 0px 16% !important;
+    width: 500px;
 }
 .list__img__button{
     margin-bottom: 15px;

@@ -18,8 +18,12 @@ body{
     text-align: center;
     margin: 50px auto;
     max-width: 500px;
+    width: 100%;
 }
 .list{
+
+}
+.menu{
     position: relative;
 }
 .list >li{
@@ -28,9 +32,9 @@ body{
 }
 .list li >img{
     max-width: 100%;
+    display: block;
 }
 .list li >p{
-    margin-top: -3px;
     display: none;
     padding: 15px;
     border: 1px solid;
@@ -42,7 +46,7 @@ body{
     top: -300px;
     border-radius: 5px;
     border: 2px solid !important;
-    width: 500px;
+    /*  width: 500px;*/
 }
 .list__img__button{
     margin-bottom: 15px;
@@ -51,9 +55,9 @@ body{
 .bullet__close{   
     position: absolute;
     top: 0%;
-    right: 0%; 
-    margin-top: -15px;
-    right: -15px;
+    right: 0%;
+    /* margin-top: -15px;*/
+    /* right: -15px;*/
     cursor: pointer;
 }
 .list__content >img{

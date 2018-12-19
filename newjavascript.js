@@ -83,34 +83,38 @@ function setStyleNonePopup(list) {
 ;
 //funtion start run pop up
 function runShow(typeShow, type) {
+
     if (type === 1) //show menu
     {
         move = 0;
+        typeShow.style.height = 'auto';
+        var height=$(typeShow).height();//get height max of tag
         start = setInterval(function () {
             move = move + 2;
             typeShow.style.display = "block";
             typeShow.style.height = move + 'px';
-            stopPopUp(typeShow, type);
+            stopPopUp(typeShow, type, height);
         }, 1);
     } else if (type === 2) { //show popup
-        move=-200;
+        move = -200;
         start = setInterval(function () {
             move = move + 2;
             typeShow.style.display = "block";
             typeShow.style.top = move + 'px';
-            stopPopUp(typeShow, type);
+            stopPopUp(typeShow, type, 500);
         }, 5);
     }
 }
 ;
 //funtion stop run popup
-function stopPopUp(typeShow, type) {
+function stopPopUp(typeShow, type, height) {
     if (move >= 50 && type === 2)
     {
         clearInterval(start);
         move = -200;
-    } else if (move >= 200 && type === 1) {
-        typeShow.style.height = '-200px';
+    } else if (move >= height && type === 1) {
+        typeShow.style.height = height;
+        //alert($(typeShow).height());
         clearInterval(start);
         move = 0;
     }

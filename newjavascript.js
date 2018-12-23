@@ -88,7 +88,7 @@ function runShow(typeShow, type) {
     {
         move = 0;
         typeShow.style.height = 'auto';
-        var height=$(typeShow).height();//get height max of tag
+        var height = $(typeShow).height();//get height max of tag
         start = setInterval(function () {
             move = move + 2;
             typeShow.style.display = "block";
@@ -120,18 +120,34 @@ function stopPopUp(typeShow, type, height) {
     }
 }
 ;
+//When popup show do funtion 
+function PointerEvents(type) {
+    var listMenu = document.getElementsByClassName("list");
+    if (type === 1) {
+        for (var i = 0; i < listMenu.length; i++) {
+            listMenu[i].setAttribute('style', 'pointer-events: none;');
+        }
+    } else
+        for (var i = 0; i < listMenu.length; i++) {
+            listMenu[i].setAttribute('style', 'pointer-events: auto;');
+        }
+}
+;
 //funtion showPopUp of event onclick 
 function showPopUP(x) {
     type = 2;
     var listItemsPopUp = document.getElementsByClassName("popup");
     setStyleNonePopup(listItemsPopUp);
+    PointerEvents(1);
     if (x % 2 !== 0) {
         runShow(listItemsPopUp[0], type);
     } else {
         runShow(listItemsPopUp[1], type);
     }
+
 }
 ;
+
 // funtion Hide popup of event onclick 
 function hidePopup() {
     var listItemsPopUp = document.getElementsByClassName("popup");
@@ -140,4 +156,5 @@ function hidePopup() {
         listItemsPopUp[i].style.top = "-300px";
         listItemsPopUp[i].style.display = "none";
     }
+    PointerEvents(0);
 }
